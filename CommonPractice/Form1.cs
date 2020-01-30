@@ -33,16 +33,17 @@ namespace CommonPractice
         private void SetupColorComboBoxes()
         {
             // add colors starting with the letter A
-            ColorsComboBox1.DataSource = ColorsBeginningWithA();
+            ColorsComboBox1.DataSource = ColorsBeginningWith("A");
+
             // add colors starting with B, will not show up
-            var bColors = ColorsBeginningWithB();
+            var bColors = ColorsBeginningWith("B");
             ((List<nf.ColorItem>)ColorsComboBox1.DataSource).AddRange(bColors.ToArray());
 
             /*
              * We need to use a BindingList to allow a ComboBox to recognize new
              * items added.
              */
-            var bColorList = new BindingList<nf.ColorItem>(ColorsBeginningWithA());
+            var bColorList = new BindingList<nf.ColorItem>(ColorsBeginningWith("A"));
 
             ColorsComboBox2.DataSource = bColorList;
             bColorList.AddColors(bColors);
@@ -160,6 +161,7 @@ namespace CommonPractice
             }
 
             ResultsTextBox.Text = _stringBuilder.ToString();
+
         }
 
         private async void JetBrainsINotifyPropertyChangedButton_Click(object sender, EventArgs e)
@@ -192,6 +194,7 @@ namespace CommonPractice
             }
 
             ResultsTextBox.Text = _stringBuilder.ToString();
+
         }
         /// <summary>
         /// Since there are two different ways the ListBox is loaded
@@ -203,6 +206,7 @@ namespace CommonPractice
         /// <param name="e"></param>
         private void CurrentPersonButton_Click(object sender, EventArgs e)
         {
+
             if (_personBindingSource.DataSource == null)
             {
                 MessageBox.Show(((IPerson)listBox1.SelectedItem).LastName);
@@ -211,10 +215,23 @@ namespace CommonPractice
             {
                 MessageBox.Show(((IPerson)_personBindingSource.Current).LastName);
             }
-
-
         }
 
+        /// <summary>
+        /// Change name for selected item
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ChangeCurrentColorButton_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrWhiteSpace(ColorNameTextBox.Text) && ColorsComboBox2.Items.Count >0)
+            {
+                // this will be updated in the ComboBox using a BindingList
+                ((nf.ColorItem)ColorsComboBox2.SelectedItem).Name = ColorNameTextBox.Text;
 
+                // this will update the backing list but not the ComboBox
+                ((nf.ColorItem)ColorsComboBox1.SelectedItem).Name = ColorNameTextBox.Text;
+            }
+        }
     }
 }

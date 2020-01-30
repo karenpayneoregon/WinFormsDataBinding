@@ -37,8 +37,10 @@
             this.ResultsTextBox = new System.Windows.Forms.TextBox();
             this.CurrentPersonButton = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.ColorsComboBox1 = new System.Windows.Forms.ComboBox();
             this.ColorsComboBox2 = new System.Windows.Forms.ComboBox();
+            this.ColorsComboBox1 = new System.Windows.Forms.ComboBox();
+            this.ChangeCurrentColorButton = new System.Windows.Forms.Button();
+            this.ColorNameTextBox = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -128,14 +130,25 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.ColorNameTextBox);
+            this.groupBox2.Controls.Add(this.ChangeCurrentColorButton);
             this.groupBox2.Controls.Add(this.ColorsComboBox2);
             this.groupBox2.Controls.Add(this.ColorsComboBox1);
             this.groupBox2.Location = new System.Drawing.Point(23, 312);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(626, 110);
+            this.groupBox2.Size = new System.Drawing.Size(765, 110);
             this.groupBox2.TabIndex = 7;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Colors";
+            // 
+            // ColorsComboBox2
+            // 
+            this.ColorsComboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ColorsComboBox2.FormattingEnabled = true;
+            this.ColorsComboBox2.Location = new System.Drawing.Point(181, 33);
+            this.ColorsComboBox2.Name = "ColorsComboBox2";
+            this.ColorsComboBox2.Size = new System.Drawing.Size(139, 21);
+            this.ColorsComboBox2.TabIndex = 1;
             // 
             // ColorsComboBox1
             // 
@@ -146,14 +159,23 @@
             this.ColorsComboBox1.Size = new System.Drawing.Size(139, 21);
             this.ColorsComboBox1.TabIndex = 0;
             // 
-            // ColorsComboBox2
+            // ChangeCurrentColorButton
             // 
-            this.ColorsComboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.ColorsComboBox2.FormattingEnabled = true;
-            this.ColorsComboBox2.Location = new System.Drawing.Point(181, 33);
-            this.ColorsComboBox2.Name = "ColorsComboBox2";
-            this.ColorsComboBox2.Size = new System.Drawing.Size(139, 21);
-            this.ColorsComboBox2.TabIndex = 1;
+            this.ChangeCurrentColorButton.Location = new System.Drawing.Point(337, 31);
+            this.ChangeCurrentColorButton.Name = "ChangeCurrentColorButton";
+            this.ChangeCurrentColorButton.Size = new System.Drawing.Size(228, 23);
+            this.ChangeCurrentColorButton.TabIndex = 2;
+            this.ChangeCurrentColorButton.Text = "Change Current color";
+            this.ChangeCurrentColorButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ChangeCurrentColorButton.UseVisualStyleBackColor = true;
+            this.ChangeCurrentColorButton.Click += new System.EventHandler(this.ChangeCurrentColorButton_Click);
+            // 
+            // ColorNameTextBox
+            // 
+            this.ColorNameTextBox.Location = new System.Drawing.Point(571, 31);
+            this.ColorNameTextBox.Name = "ColorNameTextBox";
+            this.ColorNameTextBox.Size = new System.Drawing.Size(121, 20);
+            this.ColorNameTextBox.TabIndex = 3;
             // 
             // Form1
             // 
@@ -172,6 +194,7 @@
             this.Text = "Common practice";
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -190,6 +213,8 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.ComboBox ColorsComboBox1;
         private System.Windows.Forms.ComboBox ColorsComboBox2;
+        private System.Windows.Forms.Button ChangeCurrentColorButton;
+        private System.Windows.Forms.TextBox ColorNameTextBox;
     }
 }
 
