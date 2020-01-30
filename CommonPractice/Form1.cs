@@ -20,9 +20,8 @@ namespace CommonPractice
     public partial class Form1 : Form
     {
         private readonly BindingSource _personBindingSource = new BindingSource();
-        private readonly BindingSource _colorsBindingSource = new BindingSource();
-
         private readonly StringBuilder _stringBuilder = new StringBuilder();
+
         public Form1()
         {
             InitializeComponent();
