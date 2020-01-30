@@ -4,24 +4,51 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CommonPractice.HelperClasses;
 using CommonPractice.Interfaces;
+using static CommonPractice.HelperClasses.SysColors;
 using Normal = CommonPractice.BaseExampleClasses;
 using nf = CommonPractice.BaseNotifyClasses;
-using  jet = CommonPractice.BaseJetNotifyClasses;
+using jetVersion = CommonPractice.BaseJetNotifyClasses;
 
 namespace CommonPractice
 {
     public partial class Form1 : Form
     {
-        private readonly BindingSource _bindingSource = new BindingSource();
+        private readonly BindingSource _personBindingSource = new BindingSource();
+        private readonly BindingSource _colorsBindingSource = new BindingSource();
+
         private readonly StringBuilder _stringBuilder = new StringBuilder();
         public Form1()
         {
             InitializeComponent();
+
+            SetupColorComboBoxes();
         }
+
+        private void SetupColorComboBoxes()
+        {
+            // add colors starting with the letter A
+            ColorsComboBox1.DataSource = ColorsBeginningWithA();
+            // add colors starting with B, will not show up
+            var bColors = ColorsBeginningWithB();
+            ((List<nf.ColorItem>)ColorsComboBox1.DataSource).AddRange(bColors.ToArray());
+
+            /*
+             * We need to use a BindingList to allow a ComboBox to recognize new
+             * items added.
+             */
+            var bColorList = new BindingList<nf.ColorItem>(ColorsBeginningWithA());
+
+            ColorsComboBox2.DataSource = bColorList;
+            bColorList.AddColors(bColors);
+
+        }
+
         /// <summary>
         /// Pause for one second to see new results as
         /// the text box results will be the same always while the
@@ -34,7 +61,7 @@ namespace CommonPractice
             _stringBuilder.Clear();
             ResultsTextBox.Text = "";
 
-            _bindingSource.DataSource = null;
+            _personBindingSource.DataSource = null;
             listBox1.DataSource = null;
 
             await Task.Delay(1000);
@@ -52,7 +79,8 @@ namespace CommonPractice
 
             ((List<Normal.Person>)listBox1.DataSource).Add(new Normal.Person()
             {
-                Id = 3, FirstName = "Pat",
+                Id = 3,
+                FirstName = "Pat",
                 LastName = "Lebow"
             });
 
@@ -73,24 +101,25 @@ namespace CommonPractice
         {
             await PrepareForPopulatingListBox();
 
-            _bindingSource.DataSource = new List<Normal.Person>()
+            _personBindingSource.DataSource = new List<Normal.Person>()
             {
                 new Normal.Person() { Id = 1, FirstName = "Jane", LastName = "Smith"},
                 new Normal.Person() { Id = 2, FirstName = "Amy", LastName = "Jones" }
             };
 
-            ((List<Normal.Person>)_bindingSource.DataSource).Add(new Normal.Person()
+            ((List<Normal.Person>)_personBindingSource.DataSource).Add(new Normal.Person()
             {
-                Id = 3, FirstName = "Pat",
+                Id = 3,
+                FirstName = "Pat",
                 LastName = "Lebow"
             });
 
-            listBox1.DataSource = _bindingSource;
+            listBox1.DataSource = _personBindingSource;
 
-            ((Normal.Person)_bindingSource[0]).FirstName = "Kane";
+            ((Normal.Person)_personBindingSource[0]).FirstName = "Kane";
 
 
-            var peopleList = (List<Normal.Person>)_bindingSource.DataSource;
+            var peopleList = (List<Normal.Person>)_personBindingSource.DataSource;
 
             foreach (Normal.Person person in peopleList)
             {
@@ -105,25 +134,25 @@ namespace CommonPractice
         {
             await PrepareForPopulatingListBox();
 
-            _bindingSource.DataSource = new List<nf.Person>()
+            _personBindingSource.DataSource = new List<nf.Person>()
             {
                 new nf.Person() { Id = 1, FirstName = "Jane", LastName = "Smith"},
                 new nf.Person() { Id = 2, FirstName = "Amy", LastName = "Jones" }
             };
 
-            ((List<nf.Person>)_bindingSource.DataSource).Add(new nf.Person()
+            ((List<nf.Person>)_personBindingSource.DataSource).Add(new nf.Person()
             {
                 Id = 3,
                 FirstName = "Pat",
                 LastName = "Lebow"
             });
 
-            listBox1.DataSource = _bindingSource;
+            listBox1.DataSource = _personBindingSource;
 
-            ((nf.Person)_bindingSource[0]).FirstName = "Kane";
+            ((nf.Person)_personBindingSource[0]).FirstName = "Kane";
 
 
-            var peopleList = (List<nf.Person>)_bindingSource.DataSource;
+            var peopleList = (List<nf.Person>)_personBindingSource.DataSource;
 
             foreach (nf.Person person in peopleList)
             {
@@ -137,41 +166,53 @@ namespace CommonPractice
         {
             await PrepareForPopulatingListBox();
 
-            _bindingSource.DataSource = new List<jet.Person>()
+            _personBindingSource.DataSource = new List<jetVersion.Person>()
             {
-                new jet.Person() { Id = 1, FirstName = "Jane", LastName = "Smith"},
-                new jet.Person() { Id = 2, FirstName = "Amy", LastName = "Jones" }
+                new jetVersion.Person() { Id = 1, FirstName = "Jane", LastName = "Smith"},
+                new jetVersion.Person() { Id = 2, FirstName = "Amy", LastName = "Jones" }
             };
 
-            ((List<jet.Person>)_bindingSource.DataSource).Add(new jet.Person()
+            ((List<jetVersion.Person>)_personBindingSource.DataSource).Add(new jetVersion.Person()
             {
                 Id = 3,
                 FirstName = "Pat",
                 LastName = "Lebow"
             });
 
-            listBox1.DataSource = _bindingSource;
+            listBox1.DataSource = _personBindingSource;
 
-            ((jet.Person)_bindingSource[0]).FirstName = "Kane";
+            ((jetVersion.Person)_personBindingSource[0]).FirstName = "Kane";
 
 
-            var peopleList = (List<jet.Person>)_bindingSource.DataSource;
+            var peopleList = (List<jetVersion.Person>)_personBindingSource.DataSource;
 
-            foreach (jet.Person person in peopleList)
+            foreach (jetVersion.Person person in peopleList)
             {
                 _stringBuilder.AppendLine(person.ToString());
             }
 
             ResultsTextBox.Text = _stringBuilder.ToString();
         }
+        /// <summary>
+        /// Since there are two different ways the ListBox is loaded
+        /// if _bindingSource.DataSource == null means the ListBox.DataSource
+        /// was set to a list, otherwise ListBox.DataSource set to the
+        /// BindingSource.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void CurrentPersonButton_Click(object sender, EventArgs e)
         {
-            if (_bindingSource.Current == null)
+            if (_personBindingSource.DataSource == null)
             {
-                return;
+                MessageBox.Show(((IPerson)listBox1.SelectedItem).LastName);
+            }
+            else
+            {
+                MessageBox.Show(((IPerson)_personBindingSource.Current).LastName);
             }
 
-            MessageBox.Show(((IPerson)_bindingSource.Current).LastName);
+
         }
 
 
