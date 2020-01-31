@@ -23,7 +23,7 @@ namespace BindingSourceAddingNew
                         DataType = typeof(int),
                         AutoIncrement = true},
                     new DataColumn("PartName", typeof(string)),
-                    new DataColumn("partqty", typeof(int)),
+                    new DataColumn("Quantity", typeof(int)),
                     new DataColumn("Cost", typeof(decimal))
                     }
                 );
@@ -36,28 +36,37 @@ namespace BindingSourceAddingNew
 
                 bindingNavigator1.BindingSource = _bindingSource;
 
-                textBox1.DataBindings.Add("Text", _bindingSource, "PartName");
-                textBox2.DataBindings.Add("Text", _bindingSource, "partqty");
-                textBox3.DataBindings.Add("Text", _bindingSource, "Cost");
+                PartNameTextBox.DataBindings.Add("Text", _bindingSource, "PartName");
+                QuantityTextBox.DataBindings.Add("Text", _bindingSource, "Quantity");
+                CostTextBox.DataBindings.Add("Text", _bindingSource, "Cost");
 
                 _bindingSource.AddingNew += _bindingSource_AddingNew;
 
             }
         }
-
+        /// <summary>
+        /// Setup new DataRow with some values
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void _bindingSource_AddingNew(object sender, AddingNewEventArgs e)
         {
             DataView dataView = _bindingSource.List as DataView;
             DataRowView dataRowView = dataView.AddNew();
 
             dataRowView["PartName"] = "Just added";
-            dataRowView["partqty"] = 10;
+            dataRowView["Quantity"] = 10;
+            dataRowView["Cost"] = 1.6M;
 
             e.NewObject = dataRowView;
 
             _bindingSource.MoveLast();
         }
-
+        /// <summary>
+        /// Request to add a new record which in turn triggers AddingNew event
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void AddNewRecordToolButton_Click(object sender, EventArgs e)
         {
             _bindingSource.AddNew();

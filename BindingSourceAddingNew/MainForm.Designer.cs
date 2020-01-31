@@ -41,10 +41,12 @@
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.AddNewRecordToolButton = new System.Windows.Forms.ToolStripButton();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.CostTextBox = new System.Windows.Forms.TextBox();
+            this.PartNameTextBox = new System.Windows.Forms.TextBox();
+            this.QuantityTextBox = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).BeginInit();
             this.bindingNavigator1.SuspendLayout();
             this.SuspendLayout();
@@ -72,7 +74,7 @@
             this.bindingNavigator1.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.bindingNavigator1.Name = "bindingNavigator1";
             this.bindingNavigator1.PositionItem = this.bindingNavigatorPositionItem;
-            this.bindingNavigator1.Size = new System.Drawing.Size(568, 25);
+            this.bindingNavigator1.Size = new System.Drawing.Size(291, 25);
             this.bindingNavigator1.TabIndex = 0;
             this.bindingNavigator1.Text = "bindingNavigator1";
             // 
@@ -153,44 +155,65 @@
             this.AddNewRecordToolButton.Text = "Add new";
             this.AddNewRecordToolButton.Click += new System.EventHandler(this.AddNewRecordToolButton_Click);
             // 
-            // panel1
+            // CostTextBox
             // 
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 344);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(568, 52);
-            this.panel1.TabIndex = 2;
+            this.CostTextBox.Location = new System.Drawing.Point(91, 103);
+            this.CostTextBox.Name = "CostTextBox";
+            this.CostTextBox.Size = new System.Drawing.Size(100, 20);
+            this.CostTextBox.TabIndex = 2;
             // 
-            // textBox3
+            // PartNameTextBox
             // 
-            this.textBox3.Location = new System.Drawing.Point(346, 108);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(80, 20);
-            this.textBox3.TabIndex = 0;
+            this.PartNameTextBox.Location = new System.Drawing.Point(91, 51);
+            this.PartNameTextBox.Name = "PartNameTextBox";
+            this.PartNameTextBox.Size = new System.Drawing.Size(100, 20);
+            this.PartNameTextBox.TabIndex = 0;
             // 
-            // textBox1
+            // QuantityTextBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(326, 67);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 0;
+            this.QuantityTextBox.Location = new System.Drawing.Point(91, 77);
+            this.QuantityTextBox.Name = "QuantityTextBox";
+            this.QuantityTextBox.Size = new System.Drawing.Size(100, 20);
+            this.QuantityTextBox.TabIndex = 1;
             // 
-            // textBox2
+            // label1
             // 
-            this.textBox2.Location = new System.Drawing.Point(346, 154);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 0;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(28, 54);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(57, 13);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Part Name";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(39, 84);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(46, 13);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Quantity";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(57, 106);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(28, 13);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "Cost";
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(568, 396);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.panel1);
+            this.ClientSize = new System.Drawing.Size(291, 142);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.QuantityTextBox);
+            this.Controls.Add(this.CostTextBox);
+            this.Controls.Add(this.PartNameTextBox);
             this.Controls.Add(this.bindingNavigator1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "MainForm";
@@ -217,11 +240,13 @@
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveNextItem;
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem;
         private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox PartNameTextBox;
+        private System.Windows.Forms.TextBox QuantityTextBox;
+        private System.Windows.Forms.TextBox CostTextBox;
         private System.Windows.Forms.ToolStripButton AddNewRecordToolButton;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
     }
 }
 
