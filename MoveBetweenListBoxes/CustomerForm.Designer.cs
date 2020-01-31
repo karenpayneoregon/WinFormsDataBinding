@@ -1,6 +1,6 @@
 ﻿namespace MoveBetweenListBoxes
 {
-    partial class Form1
+    partial class CustomerForm
     {
         /// <summary>
         /// Required designer variable.

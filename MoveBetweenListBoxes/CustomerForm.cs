@@ -12,9 +12,9 @@ using MoveBetweenListBoxes.Extensions;
 
 namespace MoveBetweenListBoxes
 {
-    public partial class Form1 : Form
+    public partial class CustomerForm : Form
     {
-        public Form1()
+        public CustomerForm()
         {
             InitializeComponent();
             Shown += Form1_Shown;
@@ -82,7 +82,7 @@ namespace MoveBetweenListBoxes
         private void GetCustomersButton1_Click(object sender, EventArgs e)
         {
             var results = _bindingListOriginalData.Select(customer => customer.CompanyName);
-            if (results.Count() == 0)
+            if (!results.Any())
             {
                 MessageBox.Show("List is empty");
             }
@@ -95,7 +95,7 @@ namespace MoveBetweenListBoxes
         private void GetCustomersButton2_Click(object sender, EventArgs e)
         {
             var results = _bindingListRight.Select(customer => customer.CompanyName);
-            if (results.Count() == 0)
+            if (!results.Any())
             {
                 MessageBox.Show("List is empty");
             }
