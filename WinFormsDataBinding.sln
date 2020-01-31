@@ -12,6 +12,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoveBetweenListBoxes", "MoveBetweenListBoxes\MoveBetweenListBoxes.csproj", "{3C17ADCB-124A-4D8F-BB8D-7F4639A45DDE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BindingSourceAddingNew", "BindingSourceAddingNew\BindingSourceAddingNew.csproj", "{81E553E7-81D8-4886-BA9C-E9AF7EFD7EDA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -26,6 +28,10 @@ Global
 		{3C17ADCB-124A-4D8F-BB8D-7F4639A45DDE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3C17ADCB-124A-4D8F-BB8D-7F4639A45DDE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3C17ADCB-124A-4D8F-BB8D-7F4639A45DDE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{81E553E7-81D8-4886-BA9C-E9AF7EFD7EDA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81E553E7-81D8-4886-BA9C-E9AF7EFD7EDA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81E553E7-81D8-4886-BA9C-E9AF7EFD7EDA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81E553E7-81D8-4886-BA9C-E9AF7EFD7EDA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
