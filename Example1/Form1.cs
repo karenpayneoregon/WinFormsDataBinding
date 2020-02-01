@@ -22,9 +22,25 @@ namespace Example1
 
             dataGridView1.AutoGenerateColumns = false;
             dataGridView1.DataError += DataGridView1_DataError;
+            _bindingSource.AddingNew += _bindingSource_AddingNew;
             Shown += Form1_Shown;
 
         }
+        /// <summary>
+        /// Assign new identifier, for a real application this would
+        /// be handled differently.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void _bindingSource_AddingNew(object sender, AddingNewEventArgs e)
+        {
+
+            var id = ((List<Customer>) _bindingSource.DataSource)
+                     .Select(customer => customer.Id).Max() + 1;
+
+            e.NewObject = new Customer() {Id = id};
+        }
+
         /// <summary>
         /// Quickly get out of trouble, for a production application this
         /// is not the way to go, instead present the user with an easy to
@@ -49,6 +65,7 @@ namespace Example1
 
             dataGridView1.DataSource = _bindingSource;
 
+            IdentifierLabel.DataBindings.Add("Text", _bindingSource, "id");
             FirstNameTextBox.DataBindings.Add("Text", _bindingSource, "FirstName");
             LastNameTextBox.DataBindings.Add("Text", _bindingSource, "LastName");
         }
