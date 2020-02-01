@@ -14,6 +14,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoveBetweenListBoxes", "Mov
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BindingSourceAddingNew", "BindingSourceAddingNew\BindingSourceAddingNew.csproj", "{81E553E7-81D8-4886-BA9C-E9AF7EFD7EDA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Example1Library", "Example1Library\Example1Library.csproj", "{D83889FA-1D33-48D2-B364-6A500114DDA7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConventionalDataGridViewTextBoxBinding", "Example1\ConventionalDataGridViewTextBoxBinding.csproj", "{BEB96E33-D9B3-48FC-AC72-209E6557275B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Libraries", "Libraries", "{9F7DAD15-A4C8-4CD7-A0FF-8C6391537C5B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -32,9 +38,20 @@ Global
 		{81E553E7-81D8-4886-BA9C-E9AF7EFD7EDA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{81E553E7-81D8-4886-BA9C-E9AF7EFD7EDA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{81E553E7-81D8-4886-BA9C-E9AF7EFD7EDA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D83889FA-1D33-48D2-B364-6A500114DDA7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D83889FA-1D33-48D2-B364-6A500114DDA7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D83889FA-1D33-48D2-B364-6A500114DDA7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D83889FA-1D33-48D2-B364-6A500114DDA7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BEB96E33-D9B3-48FC-AC72-209E6557275B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BEB96E33-D9B3-48FC-AC72-209E6557275B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BEB96E33-D9B3-48FC-AC72-209E6557275B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BEB96E33-D9B3-48FC-AC72-209E6557275B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{D83889FA-1D33-48D2-B364-6A500114DDA7} = {9F7DAD15-A4C8-4CD7-A0FF-8C6391537C5B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {95AE4A48-8A12-481E-B963-9AED77B1D5EB}
