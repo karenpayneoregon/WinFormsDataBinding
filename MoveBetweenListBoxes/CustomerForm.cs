@@ -1,14 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using MoveBetweenListBoxes.Classes;
-using MoveBetweenListBoxes.Extensions;
 
 namespace MoveBetweenListBoxes
 {
@@ -19,14 +14,20 @@ namespace MoveBetweenListBoxes
             InitializeComponent();
             Shown += Form1_Shown;
         }
-        private BindingList<Customer> _bindingListOriginalData = new BindingList<Customer>();
-        private BindingList<Customer> _bindingListRight = new BindingList<Customer>();
+        private BindingList<Customer> _bindingListOriginalData = 
+            new BindingList<Customer>();
+
+        private BindingList<Customer> _bindingListRight = 
+            new BindingList<Customer>();
 
         private async void Form1_Shown(object sender, EventArgs e)
         {
 
             var ops = new SqlServerOperations();
-            _bindingListOriginalData = new BindingList<Customer>(await ops.CustomersList());
+
+            _bindingListOriginalData = 
+                new BindingList<Customer>(await ops.CustomersList());
+
             listBox1.DataSource = _bindingListOriginalData;
             
             listBox2.DataSource = _bindingListRight;
@@ -95,6 +96,7 @@ namespace MoveBetweenListBoxes
         private void GetCustomersButton2_Click(object sender, EventArgs e)
         {
             var results = _bindingListRight.Select(customer => customer.CompanyName);
+
             if (!results.Any())
             {
                 MessageBox.Show("List is empty");

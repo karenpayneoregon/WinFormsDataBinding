@@ -16,7 +16,7 @@ namespace MoveBetweenListBoxes
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new GenderForm());
+            Application.Run(new CustomerForm());
         }
     }
 }

@@ -16,7 +16,8 @@ namespace CommonPractice.HelperClasses
         {
 
             return typeof(Color)
-                .GetProperties(BindingFlags.Static | BindingFlags.DeclaredOnly | BindingFlags.Public)
+                .GetProperties(BindingFlags.Static | BindingFlags.DeclaredOnly | 
+                               BindingFlags.Public)
                 .Select(c => (Color)c.GetValue(null, null))
                 .ToList();
 
