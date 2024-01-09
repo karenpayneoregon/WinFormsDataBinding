@@ -1,12 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.960
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34309.116
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommonPractice", "CommonPractice\CommonPractice.csproj", "{D7725B5D-21FD-4DAD-8652-4678C27AE068}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{9E0955A3-6EA8-4B1B-910C-3BA403049DA2}"
 	ProjectSection(SolutionItems) = preProject
+		article.md = article.md
 		readme.md = readme.md
 	EndProjectSection
 EndProject
