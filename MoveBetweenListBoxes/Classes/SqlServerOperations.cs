@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 using BaseConnectionLibrary.ConnectionClasses;
 
@@ -23,13 +22,11 @@ namespace MoveBetweenListBoxes.Classes
             {
                 using (var cmd = new SqlCommand {Connection = cn})
                 {
-                    cmd.CommandText =
-                        "SELECT Identifier, CompanyName, ContactName, ContactTypeIdentifier, GenderIdentifier " + 
-                        "FROM dbo.Customer;";
+                    cmd.CommandText = "SELECT Identifier, CompanyName, ContactName, ContactTypeIdentifier, GenderIdentifier FROM dbo.Customer;";
 
                     await cn.OpenAsync();
 
-                    var reader = cmd.ExecuteReader();
+                    var reader = await cmd.ExecuteReaderAsync();
 
                     while (reader.Read())
                     {
@@ -48,12 +45,11 @@ namespace MoveBetweenListBoxes.Classes
             {
                 using (var cmd = new SqlCommand { Connection = cn })
                 {
-                    cmd.CommandText =
-                        "SELECT id, GenderType FROM Genders";
+                    cmd.CommandText = "SELECT id, GenderType FROM Genders";
 
                     await cn.OpenAsync();
 
-                    var reader = cmd.ExecuteReader();
+                    var reader = await cmd.ExecuteReaderAsync();
 
                     while (reader.Read())
                     {
