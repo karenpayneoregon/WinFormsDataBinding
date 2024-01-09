@@ -71,7 +71,6 @@ partial class CustomerForm
         MoveItemRightToLeftButton.Name = "MoveItemRightToLeftButton";
         MoveItemRightToLeftButton.Size = new Size(75, 28);
         MoveItemRightToLeftButton.TabIndex = 3;
-        MoveItemRightToLeftButton.Text = "<";
         MoveItemRightToLeftButton.UseVisualStyleBackColor = true;
         MoveItemRightToLeftButton.Click += MoveItemRightToLeftButton_Click;
         // 
